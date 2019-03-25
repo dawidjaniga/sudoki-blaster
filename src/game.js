@@ -1,5 +1,5 @@
 import Debug from 'debug'
-const debug = Debug('sudoku-blaster')
+const debug = Debug('sudoku-blaster:game')
 
 export default class Game {
   constructor (rows) {
@@ -7,11 +7,28 @@ export default class Game {
   }
 
   getRow (row) {
-    const index = row - 1
-    debug('row index %d', index)
+    const rowIndex = row - 1
+    debug('getRow rowIndex %d', rowIndex)
 
-    if (index >= 0 && index <= 8) {
-      return this.rows[index]
+    if (rowIndex >= 0 && rowIndex <= 8) {
+      return this.rows[rowIndex]
+    } else {
+      // @TODO: Pretty Handle Exceptions
+      throw new Error('Row out of range')
+    }
+  }
+
+  getColumn (column) {
+    const columnIndex = column - 1
+    debug('getColumn columnIndex %d', columnIndex)
+
+    if (columnIndex >= 0 && columnIndex <= 8) {
+      const column = []
+      this.rows.forEach(row => {
+        column.push(row[columnIndex])
+      })
+
+      return column
     } else {
       // @TODO: Pretty Handle Exceptions
       throw new Error('Row out of range')
