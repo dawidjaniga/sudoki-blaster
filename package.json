@@ -1,0 +1,25 @@
+{
+  "name": "sudoku-blaster",
+  "version": "0.0.1",
+  "description": "Resolve Sudoku puzzle",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dawidjaniga/sudoku-blaster.git"
+  },
+  "keywords": [
+    "sudoku",
+    "resolve",
+    "blaster",
+    "solver"
+  ],
+  "author": "Dawid Janiga <dawidjaniga@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dawidjaniga/sudoku-blaster/issues"
+  },
+  "homepage": "https://github.com/dawidjaniga/sudoku-blaster#readme"
+}
