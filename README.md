@@ -1,2 +1,2 @@
-# sudoki-blaster
+# sudoku-blaster
 Resolve Sudoku puzzle
