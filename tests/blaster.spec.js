@@ -1,5 +1,6 @@
 /* global test, expect */
 import Blaster from '../src/blaster'
+import HighestNumber from '../src/methods/highestNumber'
 import Game from '../src/game'
 
 test('resolve sudoku puzzle', () => {
@@ -30,7 +31,10 @@ test('resolve sudoku puzzle', () => {
     [2, 9, 8, 3, 4, 7, 5, 6, 1]
   ]
   const sudoku = new Game(input)
-  const blaster = new Blaster(sudoku)
+  const methods = [
+    new HighestNumber(sudoku)
+  ]
+  const blaster = new Blaster(sudoku, methods)
   expect(blaster.blast()).toEqual(output)
 })
 
@@ -62,34 +66,9 @@ test('resolve sudoku puzzle', () => {
     [8, 9, 5, 1, 6, 2, 3, 7, 4]
   ]
   const sudoku = new Game(input)
-  const blaster = new Blaster(sudoku)
-  expect(blaster.blast()).toEqual(output)
-})
-
-test('resolve by highest numbers iterating over squares', () => {
-  const input = [
-    [0, 6, 0, 0, 1, 0, 0, 0, 4],
-    [0, 8, 0, 0, 9, 0, 2, 0, 0],
-    [4, 0, 0, 0, 0, 0, 6, 1, 3],
-
-    [5, 0, 7, 4, 6, 0, 8, 3, 2],
-    [0, 2, 4, 0, 3, 5, 0, 9, 6],
-    [0, 3, 6, 2, 0, 0, 7, 0, 0],
-
-    [6, 0, 0, 1, 5, 0, 4, 2, 0],
-    [0, 4, 5, 0, 0, 0, 3, 7, 0],
-    [0, 0, 8, 0, 0, 7, 0, 0, 0]
+  const methods = [
+    new HighestNumber(sudoku)
   ]
-  const sudoku = new Game(input)
-  const blaster = new Blaster(sudoku)
-  expect(blaster.resolveByHighestNumber()).toEqual({
-    column: 6,
-    row: 2,
-    value: 4
-  })
-//   expect(blaster.resolveByHighestNumber()).toEqual({
-//     column: 8,
-//     row: 9,
-//     value: 6
-//   })
+  const blaster = new Blaster(sudoku, methods)
+  expect(blaster.blast()).toEqual(output)
 })
